@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Korka Mohamed El Habib Bal – Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brown: #7B5B3A;
+    --brown-light: #A0785A;
+    --brown-pale: #D4B89A;
+    --cream: #FAF6F1;
+    --dark: #2B1F14;
+    --white: #FFFFFF;
+    --accent: #C4874A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 60px;
+    background: rgba(250,246,241,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(123,91,58,0.15);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-weight: 700;
+    color: var(--brown);
+    letter-spacing: 1px;
+  }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: var(--brown-light);
+    font-size: 0.85rem; font-weight: 500; letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--brown); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 100px 60px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; right: -100px; top: -100px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(196,135,74,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: pulse 6s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.1); opacity: 1; }
+  }
+  .hero-text { animation: fadeUp 0.9s ease both; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-tag {
+    display: inline-block;
+    background: var(--brown-pale);
+    color: var(--brown);
+    font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 6px 16px; border-radius: 20px;
+    margin-bottom: 24px;
+    animation: fadeUp 0.9s 0.1s ease both;
+  }
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 900; line-height: 1.15;
+    color: var(--dark);
+    margin-bottom: 16px;
+    animation: fadeUp 0.9s 0.2s ease both;
+  }
+  .hero-name span { color: var(--brown); }
+  .hero-subtitle {
+    font-size: 1rem; color: var(--brown-light);
+    font-weight: 300; margin-bottom: 32px; line-height: 1.7;
+    max-width: 440px;
+    animation: fadeUp 0.9s 0.3s ease both;
+  }
+  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; animation: fadeUp 0.9s 0.4s ease both; }
+  .btn {
+    padding: 14px 28px; border-radius: 4px;
+    font-size: 0.85rem; font-weight: 500; letter-spacing: 0.5px;
+    text-decoration: none; cursor: pointer;
+    transition: all 0.3s; border: none;
+  }
+  .btn-primary { background: var(--brown); color: var(--white); }
+  .btn-primary:hover { background: var(--dark); transform: translateY(-2px); }
+  .btn-outline { background: transparent; color: var(--brown); border: 1.5px solid var(--brown-pale); }
+  .btn-outline:hover { border-color: var(--brown); background: rgba(123,91,58,0.05); }
+
+  .hero-visual {
+    display: flex; justify-content: center; align-items: center;
+    animation: fadeUp 0.9s 0.2s ease both;
+  }
+  .hero-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(123,91,58,0.15);
+    width: 340px;
+    position: relative;
+  }
+  .hero-card::before {
+    content: '';
+    position: absolute; top: -2px; left: 40px; right: 40px; height: 4px;
+    background: linear-gradient(90deg, var(--brown), var(--accent));
+    border-radius: 0 0 4px 4px;
+  }
+  .card-avatar {
+    width: 70px; height: 70px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--brown-pale), var(--accent));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem; font-weight: 700; color: var(--white);
+    margin-bottom: 20px;
+  }
+  .card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; font-weight: 700; color: var(--dark);
+    margin-bottom: 4px;
+  }
+  .card-role { font-size: 0.8rem; color: var(--brown-light); margin-bottom: 24px; }
+  .card-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .stat {
+    background: var(--cream);
+    padding: 12px; border-radius: 8px; text-align: center;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; font-weight: 700; color: var(--brown);
+  }
+  .stat-label { font-size: 0.7rem; color: var(--brown-light); margin-top: 2px; }
+
+  /* SECTIONS */
+  section { padding: 100px 60px; }
+  .section-label {
+    font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--accent); font-weight: 500; margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 700; color: var(--dark); margin-bottom: 48px;
+  }
+
+  /* ABOUT */
+  .about { background: var(--white); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .about-text p {
+    font-size: 1rem; line-height: 1.8; color: #5a4a3a;
+    margin-bottom: 20px;
+  }
+  .about-details { display: flex; flex-direction: column; gap: 16px; }
+  .detail-row { display: flex; align-items: center; gap: 14px; }
+  .detail-icon {
+    width: 40px; height: 40px; border-radius: 8px;
+    background: var(--cream);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; flex-shrink: 0;
+  }
+  .detail-info strong { display: block; font-size: 0.85rem; color: var(--dark); }
+  .detail-info span { font-size: 0.8rem; color: var(--brown-light); }
+
+  /* SKILLS */
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .skill-card {
+    background: var(--white);
+    border-radius: 12px; padding: 28px;
+    border: 1px solid rgba(123,91,58,0.1);
+    transition: all 0.3s;
+    animation: fadeUp 0.6s ease both;
+  }
+  .skill-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(123,91,58,0.12);
+    border-color: var(--brown-pale);
+  }
+  .skill-icon { font-size: 1.8rem; margin-bottom: 14px; }
+  .skill-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; font-weight: 700; color: var(--dark);
+    margin-bottom: 12px;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    background: var(--cream);
+    color: var(--brown);
+    font-size: 0.72rem; font-weight: 500;
+    padding: 4px 10px; border-radius: 20px;
+    border: 1px solid var(--brown-pale);
+  }
+
+  /* PROJECTS */
+  .projects { background: var(--white); }
+  .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+  .project-card {
+    border-radius: 12px; overflow: hidden;
+    border: 1px solid rgba(123,91,58,0.1);
+    transition: all 0.3s;
+    background: var(--cream);
+  }
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(123,91,58,0.15);
+  }
+  .project-header {
+    background: linear-gradient(135deg, var(--brown), var(--brown-light));
+    padding: 28px; color: var(--white);
+  }
+  .project-emoji { font-size: 2rem; margin-bottom: 10px; }
+  .project-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; font-weight: 700; margin-bottom: 6px;
+  }
+  .project-type { font-size: 0.75rem; opacity: 0.8; letter-spacing: 1px; text-transform: uppercase; }
+  .project-body { padding: 24px; }
+  .project-desc { font-size: 0.88rem; line-height: 1.7; color: #5a4a3a; margin-bottom: 16px; }
+  .project-stack { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+  .project-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: var(--brown); font-size: 0.8rem; font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .project-link:hover { color: var(--dark); }
+
+  /* CONTACT */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .contact-info { display: flex; flex-direction: column; gap: 20px; }
+  .contact-item {
+    display: flex; align-items: center; gap: 16px;
+    padding: 20px; background: var(--white);
+    border-radius: 10px; border: 1px solid rgba(123,91,58,0.1);
+  }
+  .contact-icon {
+    width: 44px; height: 44px; border-radius: 10px;
+    background: linear-gradient(135deg, var(--brown-pale), var(--accent));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; flex-shrink: 0;
+  }
+  .contact-text strong { display: block; font-size: 0.85rem; color: var(--dark); font-weight: 500; }
+  .contact-text span { font-size: 0.8rem; color: var(--brown-light); }
+  .github-card {
+    background: var(--dark);
+    border-radius: 12px; padding: 36px;
+    color: var(--white);
+  }
+  .github-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; margin-bottom: 12px;
+  }
+  .github-card p { font-size: 0.88rem; opacity: 0.7; line-height: 1.7; margin-bottom: 24px; }
+  .github-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--white); color: var(--dark);
+    padding: 12px 24px; border-radius: 6px;
+    text-decoration: none; font-size: 0.85rem; font-weight: 500;
+    transition: all 0.3s;
+  }
+  .github-btn:hover { background: var(--cream); transform: translateY(-2px); }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark); color: rgba(255,255,255,0.5);
+    text-align: center; padding: 32px;
+    font-size: 0.8rem;
+  }
+  footer span { color: var(--brown-pale); }
+
+  /* DIVIDER */
+  .divider {
+    width: 60px; height: 3px;
+    background: linear-gradient(90deg, var(--brown), var(--accent));
+    border-radius: 2px; margin-bottom: 48px;
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; }
+    .hero-visual { display: none; }
+    section { padding: 60px 24px; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">K. BAL</div>
+  <ul class="nav-links">
+    <li><a href="#about">À propos</a></li>
+    <li><a href="#skills">Compétences</a></li>
+    <li><a href="#projects">Projets</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-text">
+    <div class="hero-tag">📍 Dakar, Sénégal</div>
+    <h1 class="hero-name">Korka Mohamed<br><span>El Habib Bal</span></h1>
+    <p class="hero-subtitle">Étudiante en Génie Logiciel, autonome et très sérieuse. Passionnée par le développement web, mobile et l'innovation numérique.</p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn btn-primary">Voir mes projets</a>
+      <a href="https://github.com/fatimabal" target="_blank" class="btn btn-outline">GitHub →</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card">
+      <div class="card-avatar">K</div>
+      <div class="card-name">Korka M. El Habib Bal</div>
+      <div class="card-role">Étudiante en Génie Logiciel · ISI Dakar</div>
+      <div class="card-stats">
+        <div class="stat">
+          <div class="stat-num">3+</div>
+          <div class="stat-label">Projets</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">7+</div>
+          <div class="stat-label">Technologies</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">2</div>
+          <div class="stat-label">Frameworks</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Langues</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-label">Qui suis-je</div>
+  <h2 class="section-title">À propos de moi</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>Étudiante en génie logiciel, autonome et très sérieuse, avec une passion pour la conception et le développement web. Désireuse de contribuer à des projets collaboratifs afin d'enrichir mes compétences et d'acquérir davantage d'expérience pratique.</p>
+      <p>Passionnée par les technologies web et l'innovation numérique, je suis motivée à saisir chaque opportunité pour progresser et me perfectionner dans mon domaine.</p>
+    </div>
+    <div class="about-details">
+      <div class="detail-row">
+        <div class="detail-icon">🎓</div>
+        <div class="detail-info">
+          <strong>Licence en Génie Logiciel (en cours)</strong>
+          <span>ISI Dakar · 2023–2026</span>
+        </div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-icon">📜</div>
+        <div class="detail-info">
+          <strong>Baccalauréat D</strong>
+          <span>GSP Beeli, Nouakchott · 2023</span>
+        </div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-icon">🌍</div>
+        <div class="detail-info">
+          <strong>Langues</strong>
+          <span>Français · Anglais · Arabe</span>
+        </div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-icon">✨</div>
+        <div class="detail-info">
+          <strong>Centres d'intérêt</strong>
+          <span>Mode · Sport · Lecture · Voyage</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">Expertise</div>
+  <h2 class="section-title">Compétences techniques</h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-icon">💻</div>
+      <div class="skill-title">Langages</div>
+      <div class="skill-tags">
+        <span class="tag">Java</span>
+        <span class="tag">Python</span>
+        <span class="tag">PHP</span>
+        <span class="tag">HTML/CSS</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">📱</div>
+      <div class="skill-title">Mobile & Frameworks</div>
+      <div class="skill-tags">
+        <span class="tag">Flutter</span>
+        <span class="tag">Flask</span>
+        <span class="tag">Laravel</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🗄️</div>
+      <div class="skill-title">Bases de données</div>
+      <div class="skill-tags">
+        <span class="tag">MySQL</span>
+        <span class="tag">PostgreSQL</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🔧</div>
+      <div class="skill-title">Outils</div>
+      <div class="skill-tags">
+        <span class="tag">GitHub</span>
+        <span class="tag">Git</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🤝</div>
+      <div class="skill-title">Soft Skills</div>
+      <div class="skill-tags">
+        <span class="tag">Esprit d'équipe</span>
+        <span class="tag">Autonomie</span>
+        <span class="tag">Créativité</span>
+        <span class="tag">Sérieux</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">⚙️</div>
+      <div class="skill-title">Conception</div>
+      <div class="skill-tags">
+        <span class="tag">Analyse de données</span>
+        <span class="tag">Dev. Applications</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+  <div class="section-label">Réalisations</div>
+  <h2 class="section-title">Mes projets</h2>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-emoji">🚗</div>
+        <div class="project-title">Gestion Automobile</div>
+        <div class="project-type">Projet Académique · Travail en groupe</div>
+      </div>
+      <div class="project-body">
+        <p class="project-desc">Application de gestion de véhicules développée avec Python et Flask. Permet de gérer un parc automobile de manière efficace.</p>
+        <div class="project-stack">
+          <span class="tag">Python</span>
+          <span class="tag">Flask</span>
+          <span class="tag">MySQL</span>
+        </div>
+        <a href="https://github.com/fatimabal" target="_blank" class="project-link">Voir sur GitHub →</a>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-emoji">🐾</div>
+        <div class="project-title">Gestion Vétérinaire</div>
+        <div class="project-type">Projet Académique</div>
+      </div>
+      <div class="project-body">
+        <p class="project-desc">Application Java de gestion d'une clinique vétérinaire, incluant la gestion des animaux, des consultations et des traitements.</p>
+        <div class="project-stack">
+          <span class="tag">Java</span>
+          <span class="tag">MySQL</span>
+        </div>
+        <a href="https://github.com/fatimabal" target="_blank" class="project-link">Voir sur GitHub →</a>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-emoji">🗳️</div>
+        <div class="project-title">Élections des Maires 2023</div>
+        <div class="project-type">Expérience Professionnelle · Mauritanie</div>
+      </div>
+      <div class="project-body">
+        <p class="project-desc">Assistance à la gestion des listes électorales, vérification de l'identité des votants et enregistrement sécurisé des données.</p>
+        <div class="project-stack">
+          <span class="tag">Gestion de données</span>
+          <span class="tag">Confidentialité</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-header" style="background: linear-gradient(135deg, #2B1F14, #5a4a3a);">
+        <div class="project-emoji">📦</div>
+        <div class="project-title">Autres projets GitHub</div>
+        <div class="project-type">task-core · appmessagerie · Gestion-Bus</div>
+      </div>
+      <div class="project-body">
+        <p class="project-desc">Découvrez tous mes projets sur GitHub : task-core, appmessagerie, Gestion-Bus et bien d'autres projets collaboratifs.</p>
+        <div class="project-stack">
+          <span class="tag">Flutter</span>
+          <span class="tag">Python</span>
+          <span class="tag">PHP</span>
+        </div>
+        <a href="https://github.com/fatimabal" target="_blank" class="project-link">Voir tous les projets →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Me contacter</div>
+  <h2 class="section-title">Restons en contact</h2>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div class="contact-text">
+          <strong>+221 76 184 34 58</strong>
+          <span>Téléphone / WhatsApp</span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">✉️</div>
+        <div class="contact-text">
+          <strong>fatimabat298@gmail.com</strong>
+          <span>Email professionnel</span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div class="contact-text">
+          <strong>Keur Massar, Dakar</strong>
+          <span>Sénégal</span>
+        </div>
+      </div>
+    </div>
+    <div class="github-card">
+      <h3>Mon GitHub</h3>
+      <p>Retrouvez tous mes projets, contributions et expériences de code sur mon profil GitHub.</p>
+      <a href="https://github.com/fatimabal" target="_blank" class="github-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+        github.com/fatimabal
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 <span>Korka Mohamed El Habib Bal</span> · Étudiante en Génie Logiciel · ISI Dakar</p>
+</footer>
+
+</body>
+</html>
